@@ -1,0 +1,30 @@
+import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import '../models/expense.dart';
+
+class Expenses extends StatefulWidget {
+  const Expenses({super.key});
+
+  @override
+  State<Expenses> createState() => _ExpensesState();
+}
+
+class _ExpensesState extends State<Expenses> {
+
+  final List<Expense> _registeredExpense=[
+    Expense(title: "course",amount: 20,date: DateTime.now(),category: Category.work),
+  Expense(title: "pizza",amount: 15,date: DateTime.now(),category: Category.food),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          Text('the chart'),
+          Expanded(child: ExpensesList(expenses: _registeredExpense))
+        ],
+      ),
+    );
+  }
+}
